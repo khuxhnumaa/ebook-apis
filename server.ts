@@ -1,6 +1,10 @@
 import {config} from './src/config/config.js';
 import exp_app from "./src/app.js";
-const startServer = () =>{
+import connectDB from './src/config/db.js';
+const startServer = async() =>{
+
+    await connectDB();
+    
     const port = config.port || 3000;
 
     exp_app.listen(port, ()=>{
