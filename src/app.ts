@@ -1,7 +1,6 @@
 import express from 'express'
-
-
 import createHttpError from 'http-errors'
+import bcrypt from 'bcrypt'
 import globalErrorHandler from './middlewares/globalErrorHandler.js'
 import userRoute from './user/userRouter.js'
 
