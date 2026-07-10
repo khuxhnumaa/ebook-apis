@@ -2,7 +2,9 @@ import type { NextFunction, Request, Response } from "express";
 import bcrypt from 'bcrypt'
 import createHttpError from "http-errors";
 import userModel from "./userModel.js";
-
+// import { sign } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
+import { config } from "../config/config.js";
 const createUser = async (req:Request,res:Response, next:NextFunction)=>{
 
    
@@ -31,11 +33,16 @@ const createUser = async (req:Request,res:Response, next:NextFunction)=>{
         password:hashPassword,
     });
     //token Generation-JWT system
+    // const token = sign({sub:newUser._id},config.jwtSecret as string,{ expiresIn: 60 * 60 });
+    const token = jwt.sign(
+        { sub: newUser._id },
+        config.jwtSecret as string,
+        {expiresIn: "7d"}
+      );
 
-    
 
     //response
-    res.send({id: newUser._id})
+    res.json({accessToken: token});
 };
 
 export {createUser};
