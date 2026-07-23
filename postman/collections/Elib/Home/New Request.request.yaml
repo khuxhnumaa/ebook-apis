@@ -6,8 +6,8 @@ body:
   type: json
   content: |-
     {
-        "name": "Khushnuma",
-        "email" : "hwllow@gmail.com",
-        "password" : "KHu7867"
+        "name": "Khushnuma Parveen",
+        "email" : "gp4440@myamu.ac.in",
+        "password" : "GP4440"
     }
 order: 1783275484629

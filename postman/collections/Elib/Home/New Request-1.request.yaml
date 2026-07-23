@@ -1,5 +1,14 @@
 $kind: http-request
 name: New Request
-url: ""
-method: GET
+url: http://localhost:4000/api/users/login
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        
+        "email":"gp4440@myamu.ac.inn",
+        "password":"Hellow"
+
+    }
 order: 482010341863571
